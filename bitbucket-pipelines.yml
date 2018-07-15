@@ -3,12 +3,14 @@ image: node:alpine
 definitions:
   caches:
     npm: ~/.npm
+    jest: .jest
 pipelines:
   default:
     - step:
         name: Test with Jest
         caches:
           - npm
+          - jest
         script:
           - npm ci
           - npx jest --ci

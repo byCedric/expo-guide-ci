@@ -4,6 +4,7 @@ cache:
   key: ${CI_COMMIT_REF_SLUG}
   paths:
     - ~/.npm
+    - .jest
 stages:
   - test
 before_script:

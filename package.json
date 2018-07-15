@@ -5,7 +5,8 @@
     "test": "node ./node_modules/jest/bin/jest.js --watchAll"
   },
   "jest": {
-    "preset": "jest-expo"
+    "preset": "jest-expo",
+    "cacheDirectory": ".jest"
   },
   "dependencies": {
     "@expo/samples": "2.1.1",
