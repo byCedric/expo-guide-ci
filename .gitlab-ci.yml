@@ -1,0 +1,14 @@
+---
+image: node:alpine
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - ~/.npm
+stages:
+  - test
+before_script:
+  - npm ci
+jest-tests:
+  stage: test
+  script:
+    - npx jest --ci
