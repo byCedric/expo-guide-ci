@@ -7,9 +7,16 @@ cache:
     - .jest
 stages:
   - test
+  - deploy
 before_script:
   - npm ci
 jest-tests:
   stage: test
   script:
     - npx jest --ci
+expo-deployments:
+  stage: deploy
+  script:
+    - apk add --no-cache bash
+    - npx expo login -u $EXPO_USERNAME -p $EXPO_PASSWORD
+    - npx expo publish --non-interactive
