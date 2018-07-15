@@ -14,3 +14,13 @@ pipelines:
         script:
           - npm ci
           - npx jest --ci
+    - step:
+        name: Deploy to Expo
+        deployment: test
+        caches:
+          - npm
+        script:
+          - apk add --no-cache bash
+          - npm ci
+          - npx expo login -u $EXPO_USERNAME -p $EXPO_PASSWORD
+          - npx expo publish --non-interactive
